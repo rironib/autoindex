@@ -8,7 +8,7 @@
     <div class="list-group-item">{$mark} <a href='{$url}/request.php'>{$request}</a> <span class='badge bg-primary'>{$request_new}</span></div>
     <div class="list-group-item">{$mark} <a href='{$url}/admincp/actions.php?act=editset'>{$settings}</a></div>
     <div class="list-group-item">{$mark} <a href='{$url}/admincp/plugin_manager.php'>{$plugin_manager}</a></div>
-    <div class="list-group-item">{$mark} <a href='{$url}/admincp/update_manager.php'>Updates Manager</a> <span class='badge bg-primary'>NEW</span></div>
+    <div class="list-group-item">{$mark} <a href='{$url}/admincp/update_manager.php'>Updates Manager</a></div>
     <div class="list-group-item">{$mark} <a href='{$url}/admincp/scan.php'>{$web_scanner}</a></div>
     <div class="list-group-item">{$mark} <a href='{$url}/admincp/filern.php'>{$mass_frn}</a></div>
     <div class="list-group-item">{$mark} <a href='{$url}/admincp/tpl_editor.php'>{$tpl_editor}</a></div>
