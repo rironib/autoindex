@@ -1,35 +1,58 @@
 <?php
-include'inc/init.php';
-$links[] = mai_img("arr.gif")." Ping SiteMap to Search Engines";
+// Ping Sitemap to Search Engines (Google & Bing).
+
+include 'inc/init.php';
+$links[] = mai_img("arr.gif") . " Ping Sitemap";
+
+// Function to ping a search engine using cURL
+function pingSearchEngine($engineUrl, $sitemapUrl, $engineName)
+{
+    $encodedSitemapUrl = urlencode($sitemapUrl);
+    $pingUrl = "$engineUrl$encodedSitemapUrl";
+
+    // Initialize cURL session
+    $ch = curl_init($pingUrl);
+
+    // Set cURL options
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    // Perform the cURL request
+    $data = curl_exec($ch);
+
+    // Check for cURL errors
+    if (curl_errno($ch)) {
+        echo "<div class='list-group mb-2'><div class='list-group-item bg-danger text-white fs-5 fw-bold'>Error</div><div class='list-group-item'>cURL Error for $engineName: " . curl_error($ch) . "</div></div>";
+    } else {
+        echo "<div class='list-group mb-2'><div class='list-group-item fs-5 fw-bold active'>Response From $engineName</div><div class='list-group-item'>";
+
+        if ($data !== false) {
+            echo "<b>Sitemap Notification Received</b>
+                <hr class='my-2'>
+                Your Sitemap has been successfully added to the list of Sitemaps to crawl.";
+        } else {
+            echo "Failed to Ping $engineName. Check your network and try again.";
+        }
+
+        echo "</div></div>";
+    }
+
+    // Close cURL session
+    curl_close($ch);
+}
 
 include "header.php";
-// SiteMap URL
-$sitemap_url = "$set->url/sitemap.xml";
-// Search Engine URLs
-$google="http://www.google.com/webmasters/sitemaps/ping?sitemap=";
-$bing="http://www.bing.com/webmaster/ping.aspx?siteMap=";
 
- // Lets Ping Them!
-$data=miraz_get_contents("$google$sitemap_url");
-echo '<div class="title">Response From Google</div><div class="content">';
-if($data){
-echo '
-<b>Sitemap Notification Received</b><br/>
-Your Sitemap has been successfully added to our list of Sitemaps to crawl. If this is the first time you are notifying Google about this Sitemap, please add it via <a href="http://www.google.com/webmasters/tools/">http://www.google.com/webmasters/tools/</a> so you can track its status. Please note that we do not add all submitted URLs to our index, and we cannot make any predictions or guarantees about when or if they will appear.</div>';
-}
-else{
-echo'Failed to Ping Google!';
-}
-echo'</div>';
-$data2=miraz_get_contents("$bing$sitemap_url");
-echo'<div class="title">Response From Bing</div><div class="content2">';
-if($data2){
-echo '
-Thanks for submitting your Sitemap. Join the <a href="http://bing.com/webmaster">Bing Webmaster Tools</a> to see your Sitemaps status and more reports on how you are doing on Bing.</div>';
-}
-else{
-echo'Failed to Ping Bing!';
-}
-echo'</div>';
+// Sitemap URL
+$sitemap_url = "$set->url/sitemap.xml";
+
+// Search Engine URLs
+$google = "http://www.google.com/webmasters/sitemaps/ping?sitemap=";
+$bing = "http://www.bing.com/webmaster/ping.aspx?siteMap=";
+
+// Ping Google using cURL
+pingSearchEngine($google, $sitemap_url, "Google");
+
+// Ping Bing using cURL
+pingSearchEngine($bing, $sitemap_url, "Bing");
+
 include "footer.php";
-?>
