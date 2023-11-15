@@ -2,9 +2,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{$url}/tpl/style/css/style.css" type="text/css"/>
+<link rel="stylesheet" href="{$url}/tpl/style/css/style.css?v=1.0" type="text/css"/>
 <link rel="stylesheet" href="{$url}/tpl/style/css/bootstrap.min.css?v=5.3.2" type="text/css"/>
-<link rel="shortcut icon" href="{$url}/tpl/style/favicon.png" type="images/x-png"/>
+<link rel="shortcut icon" href="{$url}/tpl/style/favicon.png?v=1.0" type="images/x-png"/>
 <title>{$title}</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
