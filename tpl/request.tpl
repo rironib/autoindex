@@ -1,6 +1,6 @@
 {$add}
 <form action='?' method='post'>
-<div class="list-group">
+<div class="list-group mb-2">
     <div class="list-group-item fs-5 fw-bold active">{$lgrequest}</div>
     <div class="list-group-item">
         <div class="mb-2">
@@ -13,9 +13,8 @@
 </div>
 </form>
 
-<div class='list-group mb-2'>
-    {$requests}
-</div>
+
+{$requests}
 
 <div class="d-flex justify-content-center pagination m-2">
     {$show_pages}
