@@ -1,0 +1,29 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Rewrite rules
+    RewriteRule ^data/([0-9]+)/(.*)/$ index.php?dir=$1 [QSA,L]
+    RewriteRule ^data/file/([0-9]+)/(.*)$ file.php?id=$1 [QSA,L]
+    RewriteRule ^updates/([0-9]+)/$ more_updates.php?page=$1 [QSA,L]
+    RewriteRule ^usr_set$ usr_set.php [QSA,L]
+    RewriteRule ^request$ request.php [QSA,L]
+    RewriteRule ^top$ top.php [QSA,L]
+    RewriteRule ^tos$ tos.php [QSA,L]
+    RewriteRule ^disclaimer$ disclaimer.php [QSA,L]
+    RewriteRule ^sitemap.xml$ sitemap.php [QSA,L]
+    RewriteRule ^feed$ rss.php [QSA,L]
+
+    # Custom Rule for 404 errors
+    ErrorDocument 404 /404.php
+
+    # Redirect Rules
+    RewriteRule ^index\.php$ / [R=301,L]
+    RewriteRule ^usr_set\.php$ usr_set [R=301,L]
+    RewriteRule ^request\.php$ request [R=301,L]
+    RewriteRule ^top\.php$ top [R=301,L]
+    RewriteRule ^tos\.php$ tos [R=301,L]
+    RewriteRule ^disclaimer\.php$ disclaimer [R=301,L]
+
+    # Disable directory listing
+    Options -Indexes
+</IfModule>

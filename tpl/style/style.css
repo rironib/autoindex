@@ -1,0 +1,197 @@
+body {
+margin: 0px auto;
+padding: 0px;
+font-size: 14px;
+font-family: Verdana,Arial,Helvetica,sans-serif;
+max-width: 720px;
+background: #F6F6F6 none repeat scroll 0% 0%;
+color: #595858;
+}
+#wrap{}
+a:link, a:active, a:visited {color: #2C75B1;
+text-decoration: none;
+font-weight: bold;
+font-weight:bold
+}
+a:hover, a:focus {
+text-decoration : underline;
+}
+img{max-width:100%;vertical-align:middle}
+hr {
+margin : 0;
+border-color : #f0f0f0 #fff #fff;
+border-style : solid;
+border-width : 1px;
+}
+.header {padding: 3px;
+text-align: center;
+background-color: #000;
+}
+.header a{font-size:16px;color:#fff}
+
+
+.note{color: rgba(252, 106, 49, 1);
+background-color: #FFF;
+background-repeat: no-repeat;
+text-align: center;
+padding: 9px 4px;
+font-size: 13px;
+border: 1px solid rgba(213, 213, 213, 1);
+margin: 3px;
+
+}
+.update_l{display: block;
+background: #FFF none repeat scroll 0% 0%;
+padding: 6px;
+margin: 0px;
+border-bottom: 1px solid #E6E6E6;
+} /*used this class in Updates */
+
+
+.more{padding: 5px;
+text-align: right;
+background: #F0F0F0 none repeat scroll 0% 0%;}
+.links {
+padding: 8px;
+background: #FFF none repeat scroll 0% 0%;
+margin-top: 1px;
+}
+
+.title, .title2{background-image: -moz-linear-gradient(center bottom , rgb(8, 160, 219) 0%, rgb(22, 183, 251) 50%, rgb(22, 183, 251) 100%);
+background-image: -webkit-linear-gradient(center bottom , rgb(8, 160, 219) 0%, rgb(22, 183, 251) 50%, rgb(22, 183, 251) 100%);
+background-image: -o-linear-gradient(center bottom , rgb(8, 160, 219) 0%, rgb(22, 183, 251) 50%, rgb(22, 183, 251) 100%);
+padding: 6px;
+color: #FFF;
+text-shadow: 1px 1px 3px #333;
+font-weight: bold;
+margin: 0px;
+font-size: 14px;
+background-color: #08A0DB;
+}
+
+.content, .content2 {
+display: block;
+border-bottom: 1px solid #E3E3E3;
+padding: 6px 8px;
+background: #FFF none repeat scroll 0% 0%;
+margin: 0px;
+}
+/* Added in 3.2 */
+.related_file{
+display: block;
+border-bottom: 1px solid #DDD;
+padding: 8px;
+background: #FFF none repeat scroll 0% 0%;
+margin: 0px;
+color: #7A7272;
+}
+
+
+.footer {
+color: rgb(191, 191, 191);
+text-align: center;
+font-size: 13px;
+margin: 2px;
+padding: 6px;
+background: #ECECEC;
+}
+
+.vs {
+background: #000 none repeat scroll 0% 0%;
+padding: 10px;
+margin: 0px;
+color: #FFF;
+text-align: center;
+border-top: 2px solid rgb(243, 134, 11);
+}
+.vs a{color:#fff}
+.ad{text-align: center;
+margin: 4px;
+padding: 4px;
+border: 1px solid rgba(231, 231, 231, 1);}
+.ad a{color:#555}
+span.c{float: right;
+background: none repeat scroll 0% 0% rgba(202, 242, 157, 1);
+padding: 1px 2px;
+color: rgba(101, 101, 101, 1);}
+.zag {
+font-size : large;
+}
+.green {
+color: rgba(15, 168, 15, 1);
+padding: 5px;
+background: #CFC;margin:0px 5px 0px;
+}
+.red {
+padding: 5px;
+background: #CFC;margin:0px 5px 0px;
+color:red;
+}
+
+.download {
+text-align: center;
+padding: 5px;
+background: #FFF;
+}
+.download a:focus{text-decoration:none!important;}
+.pages {
+text-align: center;
+padding: 10px;
+background: #EEE none repeat scroll 0% 0%;
+}
+.pages a, .pages span {
+    border: 1px solid #CCC;
+    padding: 2px 5px;
+    margin: 0px 2px;
+    background: #DDD none repeat scroll 0% 0%;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.submit {
+text-align:center;
+-webkit-border-radius: 0.3em;
+border-radius: 0.3em;
+padding: 3px;
+background-image: url("images/grey1.png");
+}
+.sort {text-align: center;
+padding: 3px 7px;
+background: #ECE8E6 none repeat scroll 0% 0%;
+color: #D5402F;
+margin: 0px;
+font-size: 13px !important;
+}
+.sort a{font-size:13px}
+.icon {
+display: block;
+border-bottom: 1px solid #F5F5F5;
+padding: 10px 8px;
+background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+margin: 0px;text-align:center}
+.search {display: block;
+padding: 5px;
+text-align: center;
+color: #332E2E;
+background: #FFF none repeat scroll 0% 0%;
+margin: 2px;
+border: 1px solid #ececec;
+}
+.bookmark{background: #F9F9F9 none repeat scroll 0% 0%;
+text-align: center;
+padding: 6px;}
+.description{background: rgb(236, 246, 215) none repeat scroll 0% 0%;
+text-align: center;
+padding: 7px;
+border: 1px solid rgb(230, 230, 230);}
+/* Added in 3.2 */
+.new {
+color:red;
+}
+img {
+vertical-align:center;
+
+}
+/* Style by Mac
+http://mirazmac.info */
