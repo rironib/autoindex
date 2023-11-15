@@ -60,7 +60,7 @@ if ($total_results > 0) {
 			if ((int)$_GET['req'] == $d->id && is_admin())
 				$requests .= "<form action='?page=$page' method='post'><input type='hidden' name='req' value='$d->id'><div class='input-group'><input type='text'  name='reply' class='form-control' value='" . htmlentities($d->reply, ENT_QUOTES) . "'><input class='btn btn-primary' type='submit' value='$lang->submit'></input><a href='?' class='btn btn-danger text-light' type='button'>$lang->cancel</a></div></form>";
 			else
-				$requests .= ($d->reply == '' ? "*" : "") . "<b> $lang->admin : " . nl2br(htmlentities($d->reply)) . "</b>" . (is_admin() ? " - <a href='?" . $_SERVER['QUERY_STRING'] . "&req=$d->id'><span class='badge bg-primary'>$lang->reply</span></a> | <a href='?" . $_SERVER['QUERY_STRING'] . "&delete=1&req=$d->id'><span class='badge bg-danger'>$lang->delete</span></a>" : "");
+				$requests .= ($d->reply == '' ? "*" : "") . "<b> $lang->admin </b> : " . nl2br(htmlentities($d->reply)) . "" . (is_admin() ? " <a href='?" . $_SERVER['QUERY_STRING'] . "&req=$d->id'><span class='badge bg-primary fw-normal'>$lang->reply</span></a> <a href='?" . $_SERVER['QUERY_STRING'] . "&delete=1&req=$d->id'><span class='badge bg-danger fw-normal'>$lang->delete</span></a>" : "");
 
 			$requests .= "</div></div>";
 		}
