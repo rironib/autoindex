@@ -17,8 +17,9 @@ if (is_array($links))
 	foreach ($links as $link)
 		$_links .= $link . " ";
 if (empty($link)) {
-	$hide_links = '<style>.links{display:none}</style>';
+	$hide_links = '<style>#breadcrumb{display:none}</style>';
 }
+
 $title = $title . " - " . $set->name;
 $logo = empty($set->logo) ? $set->name : "<img src='$set->logo' alt='logo'>";
 
