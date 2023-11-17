@@ -25,7 +25,7 @@ if ($dir) {
 	}
 	$title = $id->name;
 } else {
-	$add = "<style>#breadcrumb,.sort{display:none}</style>";
+	$add = "<style>.pagination{display:none}</style>";
 	$title = $lang->Welcome;
 
 	// updates
