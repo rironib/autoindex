@@ -2,6 +2,6 @@
     {$updates}
 </div>
 
-<div class="d-flex justify-content-center pagination m-2">
+<div class="pagination justify-content-center m-2">
     {$show_pages}
 </div>
