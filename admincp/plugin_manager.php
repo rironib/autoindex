@@ -269,7 +269,7 @@ elseif ($act == "settings") {
 	}
 
 	$content .= "</div>";
-	$content .= "<div class='d-flex justify-content-center pagination m-2'>{$show_pages}</div>";
+	$content .= "<div class='pagination justify-content-center m-2'>{$show_pages}</div>";
 }
 
 include "../header.php";
