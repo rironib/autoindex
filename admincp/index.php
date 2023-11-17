@@ -1,10 +1,6 @@
 <?php
-/*
-Project Name: Next Auto Index
-Project URI: http://wapindex.mirazmac.info
-Project Version: 1.0
-Licence: GPL v3
-*/
+
+// admincp/index.php
 
 include "../inc/init.php";
 $plugins->run_hook("admin_top");
@@ -17,12 +13,14 @@ if (((sha1($_POST['pass']) == $set->sinfo->admin_pass) && ($_POST['token'] == $_
 
 	if ($_POST['r'] == 1) {
 		$path_info = parse_url($set->url);
-		setcookie("pass", sha1($_POST['pass']), time() + 3600 * 24 * 30, $path_info['path']); // 30 days
+		$hashed_password = sha1($_POST['pass']);
+		setcookie("pass", $hashed_password, time() + 3600 * 24 * 7, $path_info['path']);
 	}
 
 	if (!$_SESSION['adminpass']) {
 		$_SESSION['adminpass'] = sha1($_POST['pass']);
 	}
+
 	$request_new = $db->count("SELECT `id` FROM `" . MAI_PREFIX . "request` WHERE `reply`=''");
 
 	include "../header.php";
