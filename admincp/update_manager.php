@@ -111,7 +111,7 @@ if ($total_results > 0) {
 ";
 	}
 	echo "</div>";
-	echo "<div class='d-flex justify-content-center pagination m-2'>" . $show_pages . "</div>";
+	echo "<div class='pagination justify-content-center m-2'>" . $show_pages . "</div>";
 }
 
 include "../footer.php";
