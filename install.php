@@ -220,28 +220,10 @@ define("MAI_PREFIX","' . $_POST['prefix'] . '");
 
 				<div class='list-group mb-2'>
     				<div class='list-group-item fs-5 fw-bold active'>Admin Credentials</div>
-    
-    				<div class='list-group-item'>
-        				<input type='text' class='form-control' name='username' placeholder='Username'>
-					</div>
-    
 				    <div class='list-group-item'>
-						<input type='text' class='form-control' name='admin_pass' value='12345' placeholder='Password'>
+						<input type='text' class='form-control' name='admin_pass' placeholder='Password'>
 					</div>
-    
-				    <div class='list-group-item'>
-						<input type='text' class='form-control' name='nickname' placeholder='Nickname'>
-					</div>
-    
-				    <div class='list-group-item'>
-						<input type='text' class='form-control' name='country' placeholder='Country'>
-				    </div>
-
-					<div class='list-group-item'>
-						<input type='text' class='form-control' name='main_msg' value='Welcome to our site !\r\nHope you enjoy it :D'>
-				    </div>
 				</div>
-
 
 				<div class='my-3 text-center'>
 					<input type='submit' class='btn btn-dark px-4' value='Start Installation'></input>
