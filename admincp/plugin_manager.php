@@ -101,7 +101,7 @@ if ($act == "uninstall") {
 		exit;
 	} else {
 
-		$content = "<form action='#' method='post'><div class='card'><div class='card-body'><h5 class='card-title'>$lang->are_you_sure</h5><div class='text-end'><input type='submit' class='btn btn-primary' name='yes' value='$lang->uninstall'> <a class='btn btn-danger text-white fw-normal' href='?'>$lang->cancel</a></div></div></div></form>";
+		$content = "<form action='#' method='post'><div class='card mb-2'><div class='card-body'><h5 class='card-title'>$lang->are_you_sure</h5><div class='text-end'><input type='submit' class='btn btn-primary' name='yes' value='$lang->uninstall'> <a class='btn btn-danger text-white fw-normal' href='?'>$lang->cancel</a></div></div></div></form>";
 	}
 }
 
@@ -159,7 +159,7 @@ elseif ($act == "settings") {
 			</select>";
 		}
 		if ($p->type == 'textarea') {
-			$content .= "<textarea class='form-control' name='$p->name'>" . htmlentities($p->value) . "</textarea>";
+			$content .= "<textarea class='form-control' rows='5' name='$p->name'>" . htmlentities($p->value) . "</textarea>";
 		}
 		if ($p->type == 'text') {
 			$content .= "<input type='text' class='form-control' name='$p->name' value='" . htmlentities($p->value, ENT_QUOTES) . "'>";
