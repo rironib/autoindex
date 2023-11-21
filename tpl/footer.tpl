@@ -3,21 +3,24 @@
 <footer class="bg-light text-center text-white">
   <!-- Footer Menu -->
   <div class="bg-secondary-subtle p-2 text-dark"> {$footer} </div>
-  <!-- Footer Menu -->
-  <!-- Copyright -->
-  <div class="copyright bg-dark text-center p-3">
-    ⓒ 2023 <a class='text-light' href='#'>NextAutoIndexPro</a>
-    </div>
-  <!-- Copyright -->
-</footer>
-<script>
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const copyrightElements = document.getElementsByClassName("copyright");
 
-    for (let i = 0; i < copyrightElements.length; i++) {
-            copyrightElements[i].innerHTML = `ⓒ ${currentYear} <a class='text-light' href='#'>NextAutoIndexPro</a>`;
-    }
+
+  <!-- Copyright -->
+  <div class="bg-dark text-center p-3">
+    ⓒ <span id="currentYear">2023</span> <a class='text-light' href='#'>NextAutoIndexPro</a>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentYearElement = document.getElementById("currentYear");
+
+        if (currentYearElement) {
+            currentYearElement.innerHTML = `${currentYear}`;
+        }
+    });
 </script>
 </body>
 </html>
