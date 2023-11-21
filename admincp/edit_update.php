@@ -28,5 +28,5 @@ if ($_POST['u_text']) {
 	echo '<div class="green">Update Edited Successfully!</div>';
 }
 
-echo '<form method="POST" action="edit_update.php?id=' . $id . '&done=1"><div class="list-group mb-2"><div class="list-group-item fs-5 fw-bold active">Edit Update</div><div class="list-group-item"><div class="mb-2"><textarea class="form-control" name="u_text">' . $old . '</textarea></div><div class="text-center"><input class="btn btn-dark px-4" type="submit" value="Edit"/></div></div></form>';
+echo '<form method="POST" action="edit_update.php?id=' . $id . '&done=1"><div class="list-group mb-2"><div class="list-group-item fs-5 fw-bold active">Edit Update</div><div class="list-group-item"><div class="mb-2"><textarea class="form-control" rows="5" name="u_text">' . $old . '</textarea></div><div class="text-center"><input class="btn btn-dark px-4" type="submit" value="Edit"/></div></div></form>';
 include "../footer.php";
