@@ -148,7 +148,7 @@ if ($_GET['act'] == 'edit') {
 
 	$form .= "</select>/" . basename($file->path) . "</div>
 	<div class='list-group-item'>
-		<textarea class='form-control' name='description' placeholder='Description'>" . htmlentities($file->description) . "</textarea>
+		<textarea class='form-control' rows='5' name='description' placeholder='Description'>" . htmlentities($file->description) . "</textarea>
 	</div>
 	</div>
 	<div class='text-center'>
@@ -220,7 +220,7 @@ if ($_GET['act'] == 'sphp') {
 						<div class='list-group-item fs-5 fw-bold active'>$lang->config_editor</div>
 						<div class='list-group-item'>
 							<div class='mb-2'>
-                				<textarea class='form-control' name='data'>" . htmlentities(file_get_contents($file)) . "</textarea>
+                				<textarea class='form-control' rows='5' name='data'>" . htmlentities(file_get_contents($file)) . "</textarea>
 							</div>
 							<div class='text-center'>
                     			<input type='submit' class='btn btn-dark px-4' name='ok' value='$lang->save'>
@@ -253,7 +253,7 @@ if ($_GET['act'] == 'rtxt') {
 					<div class='list-group-item fs-5 fw-bold active'>$lang->edit robots.txt</div>
 					<div class='list-group-item'>
 						<div class='mb-2'>
-                    		<textarea class='form-control' name='data'>" . htmlentities(file_get_contents($file)) . "</textarea>
+                    		<textarea class='form-control' rows='5' name='data'>" . htmlentities(file_get_contents($file)) . "</textarea>
                 		</div>
 						<div class='text-center'>
                     		<input type='submit' class='btn btn-dark px-4' name='ok' value='$lang->save'>
