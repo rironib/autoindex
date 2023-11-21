@@ -47,7 +47,7 @@ if ($act == 'edit') {
             <div class='list-group-item fs-5 fw-bold active'>Edit " . basename($file) . "</div>
             <div class='list-group-item'>
                 <div class='mb-2'>
-                    <textarea class='form-control' name='data'>" . htmlentities(file_get_contents($file)) . "</textarea>
+                    <textarea class='form-control' rows='5' name='data'>" . htmlentities(file_get_contents($file)) . "</textarea>
                 </div>
                 <div class='text-center'>
                     <input type='submit' class='btn btn-dark px-4' name='ok' value='$lang->save'>
