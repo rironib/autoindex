@@ -4,6 +4,7 @@
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # Rewrite rules
+    RewriteRule ^admincp/index\.php$ /admincp/ [L,R=301]
     RewriteRule ^data/([0-9]+)/(.*)/$ index.php?dir=$1 [QSA,L]
     RewriteRule ^data/file/([0-9]+)/(.*)$ file.php?id=$1 [QSA,L]
     RewriteRule ^updates/([0-9]+)/$ more_updates.php?page=$1 [QSA,L]
