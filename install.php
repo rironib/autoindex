@@ -68,8 +68,6 @@
 		</div>
 
 
-
-		<!-- <div class="ttl">Installation Wizard</div> -->
 		<?php
 		if ($_POST) {
 
@@ -168,8 +166,7 @@ define("MAI_PREFIX","' . $_POST['prefix'] . '");
 			@chmod("files", 0777);
 			@chmod("inc/settings.php", 0666);
 
-			echo "
-			<form action='?' method='post'>
+			echo "<form action='?' method='post'>
 				<div class='list-group mb-2'>
 					<div class='list-group-item fs-5 fw-bold active'>Installation Wizard</div>
 					<div class='list-group-item fw-bold bg-primary-subtle'>Database Host</div>
@@ -179,7 +176,7 @@ define("MAI_PREFIX","' . $_POST['prefix'] . '");
 					<small class='list-group-item bg-secondary-subtle'><span class='badge bg-secondary'>Note</span> Insert your MySQL Database Host. Usually its <em>localhost</em> or <em>mysql.xxxx.ext</em>.</small>
 					<div class='list-group-item fw-bold bg-primary-subtle'>Database User</div>
 					<div class='list-group-item'>
-						<input type='text' class='form-control' name='user' value='root'>
+						<input type='text' class='form-control' name='user' value=''>
 					</div>
 					<small class='list-group-item bg-secondary-subtle'><span class='badge bg-secondary'>Note</span> Insert your database username</small>
 					<div class='list-group-item fw-bold bg-primary-subtle'>Database Password</div>
@@ -189,12 +186,12 @@ define("MAI_PREFIX","' . $_POST['prefix'] . '");
 					<small class='list-group-item bg-secondary-subtle'><span class='badge bg-secondary'>Note</span> Insert your database password</small>
 					<div class='list-group-item fw-bold bg-primary-subtle'>Database Name</div>
 					<div class='list-group-item'>
-						<input type='text' class='form-control' name='name' value='autoindex'>
+						<input type='text' class='form-control' name='name' value=''>
 					</div>
 					<small class='list-group-item bg-secondary-subtle'><span class='badge bg-secondary'>Note</span> Insert your database name.</small>
 					<div class='list-group-item fw-bold bg-primary-subtle'>Table Prefix:</div>
 					<div class='list-group-item'>
-						<input type='text' class='form-control' name='prefix' value='nair_'>
+						<input type='text' class='form-control' name='prefix' value='nai_'>
 					</div>
 					<small class='list-group-item bg-secondary-subtle'><span class='badge bg-secondary'>Note</span> If you don't know whats this then keep it as is.</small>
 				</div>
@@ -213,7 +210,7 @@ define("MAI_PREFIX","' . $_POST['prefix'] . '");
 					<small class='list-group-item bg-secondary-subtle'><span class='badge bg-secondary'>Note</span> The full URL to your logo. You can always change this later.</small>
 					<div class='list-group-item fw-bold bg-primary-subtle'>Site URL</div>
 					<div class='list-group-item'>
-						<input type='text' class='form-control' name='site_url' value='http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "'>
+						<input type='text' class='form-control' name='site_url' value='https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "'>
 					</div>
 					<small class='list-group-item bg-secondary-subtle'><span class='badge bg-secondary'>Note</span> The full URL to your site without any slash(/) at end.</small>
 				</div>
@@ -233,11 +230,14 @@ define("MAI_PREFIX","' . $_POST['prefix'] . '");
 		?>
 		<footer class="bg-light text-center text-white">
 			<!-- Footer Menu -->
-			<div class="footer"> <a href="http://127.0.0.1/autoindex"> Home </a> | <a href="http://127.0.0.1/autoindex/tos.php">TOS</a> | <a href="http://127.0.0.1/autoindex/admincp">Admin Panel</a> </div>
-			<!-- Footer Menu -->
+			<div class="bg-secondary-subtle p-2 text-dark">
+				<a href="<?php echo dirname($_SERVER['REQUEST_URI']); ?>"> Home </a> |
+				<a href="<?php echo dirname($_SERVER['REQUEST_URI']); ?>/tos.php">TOS</a> |
+				<a href="<?php echo dirname($_SERVER['REQUEST_URI']); ?>/admincp">Admin Panel</a>
+			</div>
+
 			<!-- Copyright -->
 			<div class="copyright bg-dark text-center p-3">ⓒ 2023 <a class="text-light" href="#">NextAutoIndexPro</a></div>
-			<!-- Copyright -->
 		</footer>
 	</div>
 </body>
