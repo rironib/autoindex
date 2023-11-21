@@ -19,7 +19,7 @@ echo '<form method="POST" action="update_manager.php?act=add">
    			<div class="list-group-item fs-5 fw-bold active">Update Manager</div>
 			<div class="list-group-item">
 				<div class="mb-2">
-					<textarea id="updateText" class="form-control" placeholder="Write your update here..." name="u_text" style="height: 100px"></textarea>
+					<textarea id="updateText" class="form-control" rows="5" placeholder="Write your update here..." name="u_text" style="height: 100px"></textarea>
 				</div>
 				<div class="text-center">
 					<input type="button" id="clear" class="btn btn-dark px-4" value="Clear" onclick="clearTextarea()">
