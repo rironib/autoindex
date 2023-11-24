@@ -10,20 +10,18 @@ header('Pragma: cache');
 include "inc/init.php";
 $W = 200;
 $H = 150;
-$xfile = substr(base64_decode($_GET["s"]),1);
-$file=''.MAI_ROOT.''.$xfile.'';
+$xfile = substr(base64_decode($_GET["s"]), 1);
+$file = '' . MAI_ROOT . '' . $xfile . '';
 $pic = urldecode($file[0]);
 $media = new ffmpeg_movie($file);
-$k_frame=intval($media->getFrameCount());
-$wn=$media->GetFrameWidth();
-$hn=$media->GetFrameHeight();
+$k_frame = intval($media->getFrameCount());
+$wn = $media->GetFrameWidth();
+$hn = $media->GetFrameHeight();
 $frame = $media->getFrame(30);
-if ($frame)
-{
-$gd = $frame->toGDImage();
-$new = imageCreateTrueColor($W, $H);
-imageCopyResized($new, $gd, 0, 0, 0, 0, $W, $H, $wn, $hn);
+if ($frame) {
+    $gd = $frame->toGDImage();
+    $new = imageCreateTrueColor($W, $H);
+    imageCopyResized($new, $gd, 0, 0, 0, 0, $W, $H, $wn, $hn);
 
-imageGif($new,null,100);
+    imageGif($new, null, 100);
 }
-?>
