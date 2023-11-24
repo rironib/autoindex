@@ -123,4 +123,3 @@ $lang["unsupported"] = "Unsupported Viewer";
 
 $lang["submit"] = "Submit";
 $lang["tpl_notice"] = "Nothing Found!";
-$lang["$error_message"] = "Incorrect username or password. Please try again.";
