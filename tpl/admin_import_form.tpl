@@ -48,5 +48,5 @@
 </form>
 
 <div class='alert alert-info' role='alert'>
-  {$max_file_size} 64 MB
+    {$max_file_size} 64 MB
 </div>
