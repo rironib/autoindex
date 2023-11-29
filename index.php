@@ -21,7 +21,7 @@ if ($dir) {
 	foreach (explode('/', substr($downloads_menu->path, 7)) as $dr) {
 		$_dr .= "/" . $dr;
 		$id = $db->get_row("SELECT `id`,`name` FROM `" . MAI_PREFIX . "files` WHERE `path` = '/files" . $db->escape($_dr) . "'");
-		$links[] = mai_img("arr.gif") . "&nbsp;<a href='$set->url/data/" . $id->id . "/" . mai_converturl($id->name) . "/'>" . htmlentities($id->name) . "</a>";
+		$links[] = " » " . "&nbsp;<a href='$set->url/data/" . $id->id . "/" . mai_converturl($id->name) . "/'>" . htmlentities($id->name) . "</a>";
 	}
 	$title = $id->name;
 } else {
@@ -64,7 +64,7 @@ if (!empty($_GET["search"])) {
 	}
 	$where_text = "(" . implode(" AND ", $where) . ") OR (" . implode(" AND ", $where2) . ") AND `size` > 0";
 	$search_text = htmlentities($_GET["search"], ENT_QUOTES);
-	$links[] = mai_img("arr.gif") . $lang->search;
+	$links[] = " » " . $lang->search;
 } elseif (!$dir)
 	$links = ' ';
 
