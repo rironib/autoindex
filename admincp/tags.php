@@ -38,8 +38,8 @@ if (!is_admin()) {
 }
 $fid = (int)$_GET['id'];
 
-$links[] = mai_img("arr.gif") . " <a href='index.php'>$lang->admincp </a>";
-$links[] = mai_img("arr.gif") . " <a href='$set->url/index.php'>$lang->file_manager </a>";
+$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
+$links[] = " » " . " <a href='$set->url/index.php'>$lang->file_manager </a>";
 
 require_once('../lib/getid3/getid3.php');
 require_once('../lib/getid3/write.php');
@@ -55,8 +55,8 @@ if ($_GET['act'] == 'edit') {
         $mp3_handler->setOption(array('encoding' => $mp3_tagformat));
         $filepath = ".." . $file->path;
         $title = "Edit Tags " . $file->name;
-        $links[] = mai_img("arr.gif") . " <a href='$set->url/data/file/$file->id/" . mai_converturl($file->name) . ".html'>$file->name </a>";
-        $links[] = mai_img("arr.gif") . " Edit Tags";
+        $links[] = " » " . " <a href='$set->url/data/file/$file->id/" . mai_converturl($file->name) . ".html'>$file->name </a>";
+        $links[] = " » " . " Edit Tags";
         include "../header.php";
         if (file_exists($filepath)) {
             $infos = $mp3_handler->analyze($filepath);
