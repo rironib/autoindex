@@ -22,8 +22,8 @@ if (!is_admin()) {
     exit;
 }
 
-$links[] = mai_img("arr.gif") . " <a href='index.php'>$lang->admincp </a>";
-$links[] = mai_img("arr.gif") . " <a href='?'>$lang->tpl_editor</a>";
+$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
+$links[] = " » " . " <a href='?'>$lang->tpl_editor</a>";
 
 
 $act = $_GET['act'];
@@ -34,7 +34,7 @@ if ($act == 'edit') {
     if (!file_exists($file))
         die("File does not exists !");
 
-    $links[] = mai_img("arr.gif") . " <a href='?act=edit&f=" . urlencode(basename($file)) . "'>" . basename($file) . "</a>";
+    $links[] = " » " . " <a href='?act=edit&f=" . urlencode(basename($file)) . "'>" . basename($file) . "</a>";
 
     if ($_POST)
         if (file_put_contents($file, $_POST['data']))
