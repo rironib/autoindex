@@ -2,7 +2,7 @@
 // Ping Sitemap to Search Engines (Google & Bing).
 
 include 'inc/init.php';
-$links[] = mai_img("arr.gif") . " Ping Sitemap";
+$links[] = " » " . " Ping Sitemap";
 
 // Function to ping a search engine using cURL
 function pingSearchEngine($engineUrl, $sitemapUrl, $engineName)
