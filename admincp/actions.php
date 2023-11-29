@@ -19,8 +19,8 @@ if (!is_admin()) {
 $fid = (int)$_GET['id'];
 
 
-$links[] = mai_img("arr.gif") . " <a href='index.php'>$lang->admincp </a>";
-$links[] = mai_img("arr.gif") . " <a href='$set->url/index.php'>$lang->file_manager </a>";
+$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
+$links[] = " » " . " <a href='$set->url/index.php'>$lang->file_manager </a>";
 
 // add folder
 if (isset($_GET['act']) && $_GET['act'] == 'add') {
@@ -70,7 +70,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'add') {
 		}
 	}
 
-	$links[] = mai_img("arr.gif") . " $lang->add_folder ";
+	$links[] = " » " . " $lang->add_folder ";
 
 	$form .= "<form action='#' method='post'>
         <div class='list-group mb-2'>
@@ -99,9 +99,9 @@ if ($_GET['act'] == 'edit') {
 	$plugins->run_hook("admin_actions_edit_top");
 
 	if ($file->size > 0)
-		$links[] = mai_img("arr.gif") . " <a href='$set->url/data/file/$file->id/" . mai_converturl($file->name) . "'>$file->name </a>";
+		$links[] = " » " . " <a href='$set->url/data/file/$file->id/" . mai_converturl($file->name) . "'>$file->name </a>";
 	else
-		$links[] = mai_img("arr.gif") . " <a href='$set->url/data/$file->id/" . mai_converturl($file->name) . "/'>$file->name </a>";
+		$links[] = " » " . " <a href='$set->url/data/$file->id/" . mai_converturl($file->name) . "/'>$file->name </a>";
 	if ($_POST['name']) {
 		$path = "/files" . $_POST['path'];
 		$dirid = $db->get_row("SELECT id FROM `" . MAI_PREFIX . "files` WHERE `path`='" . $path . "'")->id;
@@ -124,7 +124,7 @@ if ($_GET['act'] == 'edit') {
 			$plugins->run_hook("admin_actions_edit");
 		}
 	}
-	$links[] = mai_img("arr.gif") . " $lang->edit ";
+	$links[] = " » " . " $lang->edit ";
 
 	$form .= "<form action='#' method='post'>
 	<div class='list-group mb-2'>
@@ -167,10 +167,10 @@ if ($_GET['act'] == 'delete') {
 	}
 	$plugins->run_hook("admin_actions_delete_top");
 	if ($file->size > 0)
-		$links[] = mai_img("arr.gif") . " <a href='$set->url/data/file/$file->id/" . mai_converturl($file->name) . "'>$file->name </a>";
+		$links[] = " » " . " <a href='$set->url/data/file/$file->id/" . mai_converturl($file->name) . "'>$file->name </a>";
 	else
-		$links[] = mai_img("arr.gif") . " <a href='$set->url/data/$file->id/" . mai_converturl($file->name) . "/'>$file->name </a>";
-	$links[] = mai_img("arr.gif") . " $lang->delete ";
+		$links[] = " » " . " <a href='$set->url/data/$file->id/" . mai_converturl($file->name) . "/'>$file->name </a>";
+	$links[] = " » " . " $lang->delete ";
 	if ($_POST['yes']) {
 		if (is_dir(".." . $file->path)) {
 			deleteAll(".." . $file->path);
@@ -203,7 +203,7 @@ if ($_GET['act'] == 'delete') {
 if ($_GET['act'] == 'sphp') {
 	$plugins->run_hook("admin_actions_editset_top");
 
-	$links[count($links) - 1] = mai_img("arr.gif") . " $lang->config_editor";
+	$links[count($links) - 1] = " » " . " $lang->config_editor";
 
 	$file = MAI_ROOT . "/inc/settings.php";
 	if (!file_exists($file))
@@ -240,7 +240,7 @@ if ($_GET['act'] == 'rtxt') {
 	if (!file_exists($file))
 		die("File does not exists!");
 
-	$links[count($links) - 1] = mai_img("arr.gif") . " $lang->edit robots.txt";
+	$links[count($links) - 1] = " » " . " $lang->edit robots.txt";
 
 	if ($_POST)
 		if (file_put_contents($file, $_POST['data']))
@@ -269,7 +269,7 @@ if ($_GET['act'] == 'rtxt') {
 if ($_GET['act'] == 'editset') {
 	$plugins->run_hook("admin_actions_editset_top");
 
-	$links[count($links) - 1] = mai_img("arr.gif") . " $lang->settings";
+	$links[count($links) - 1] = " » " . " $lang->settings";
 
 	if ($_POST['msg']) {
 		if ($_POST['msg']) {
