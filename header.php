@@ -5,7 +5,8 @@ Project URI: http://wapindex.mirazmac.info
 Project Version: 1.0
 Licence: GPL v3
 */
-## This is a modified version of Master Autoindex. So all source rights goes to ionutvmi ##
+
+## header.php ##
 
 $plugins->run_hook("header_top");
 
