@@ -33,7 +33,7 @@ if ($rcount > 2) {
 			} else {
 				$related .= "<div class='list-group-item'><a href='$set->url/data/file/$r->id/" . mai_converturl($r->name) . "'>$r->name</a>
 				<br/>
-				[" . convert($r->size) . "] | $r->views Hits
+				" . convert($r->size) . " | $r->views Hits
 				</div>";
 			}
 		}
@@ -140,7 +140,7 @@ foreach (explode('/', substr($file->path, 7)) as $dr) {
 	if (trim($dr != "")) {
 		$_dr .= "/" . $dr;
 		$id = $db->get_row("SELECT `id`,`name` FROM `" . MAI_PREFIX . "files` WHERE `path` = '/files" . $db->escape($_dr) . "'");
-		$links[] = mai_img("arr.gif") . "&nbsp;<a href='$set->url/data/" . $id->id . "/" . mai_converturl($id->name) . "/'>" . htmlentities($id->name) . "</a>";
+		$links[] = " » " . "&nbsp;<a href='$set->url/data/" . $id->id . "/" . mai_converturl($id->name) . "/'>" . htmlentities($id->name) . "</a>";
 	}
 }
 if (is_admin()) {
