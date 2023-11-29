@@ -11,7 +11,7 @@ include "lib/pagination.class.php";
 
 $plugins->run_hook("request_top");
 
-$links[] = mai_img("arr.gif") . " $lang->request ";
+$links[] = " » " . " $lang->request ";
 
 
 if ($_POST['rq']) {
