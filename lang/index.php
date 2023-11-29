@@ -1,4 +1,5 @@
 <?php
+
 // Master Autoindex
 // ionutvmi@gmail.com 
 // Sep 2012
@@ -6,7 +7,7 @@
 
 $lang["Welcome"] = "Welcome";
 $lang["Home"] = "Home";
-$lang["terms_of_service"] = "Terms of service";
+$lang["terms_of_service"] = "Terms of Service";
 $lang["TOS"] = "TOS";
 $lang["downloads_menu"] = "Downloads Menu";
 $lang["admin"] = "Admin";
