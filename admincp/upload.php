@@ -12,8 +12,8 @@ if (!is_admin()) {
 	exit;
 }
 
-$links[] = mai_img("arr.gif") . " <a href='index.php'>$lang->admincp </a>";
-$links[] = mai_img("arr.gif") . " $lang->upload_files ";
+$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
+$links[] = " » " . " $lang->upload_files ";
 $maximum = get_max_upl();
 $message = '';
 
