@@ -15,8 +15,8 @@ if (!is_admin()) {
 	exit;
 }
 
-$links[] = mai_img("arr.gif") . " <a href='index.php'>$lang->admincp </a>";
-$links[] = mai_img("arr.gif") . " $lang->import_files ";
+$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
+$links[] = " » " . " $lang->import_files ";
 $message = '';
 
 $all_folders = $db->select("SELECT `path` FROM `" . MAI_PREFIX . "files` WHERE `size` = '0'");
