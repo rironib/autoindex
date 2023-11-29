@@ -16,8 +16,8 @@ if (!$update) {
 	header("Location: $set->url");
 	exit;
 }
-$links[] = mai_img("arr.gif") . " <a href='index.php'>$lang->admincp </a>";
-$links[] = mai_img("arr.gif") . " Edit Update ";
+$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
+$links[] = " » " . " Edit Update ";
 
 include "../header.php";
 
