@@ -19,8 +19,8 @@ if (!is_admin()) {
 	header("Location: $set->url");
 	exit;
 }
-$links[] = mai_img("arr.gif") . " <a href='index.php'>$lang->admincp </a>";
-$links[] = mai_img("arr.gif") . " $lang->plugin_manager";
+$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
+$links[] = " » " . " $lang->plugin_manager";
 
 $plugins->load(true); // we don't run plugins here
 $act = $_GET['act'];
