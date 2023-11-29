@@ -5,7 +5,7 @@
 include "../inc/init.php";
 $plugins->run_hook("admin_top");
 
-$links[] = mai_img("arr.gif") . " $lang->admincp";
+$links[] = " » " . " $lang->admincp";
 
 
 if (((sha1($_POST['pass']) == $set->sinfo->admin_pass) && ($_POST['token'] == $_SESSION['token'])) or is_admin()) {
