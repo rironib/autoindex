@@ -8,7 +8,7 @@ Licence: GPL v3
 
 include "inc/init.php";
 
-$links[] = mai_img("arr.gif") . " $lang->TOS";
+$links[] = " » " . " $lang->TOS";
 include "header.php";
 
 echo "<div class='list-group mb-2'>
