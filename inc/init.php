@@ -67,7 +67,7 @@ $plugins->load();
 
 
 
-$links[] = mai_img("arr.gif") . "&nbsp;<a href='$set->url'>$lang->Home</a>";
+$links[] = " » " . "&nbsp;<a href='$set->url'>$lang->Home</a>";
 
 $plugins->run_hook("init");
 
