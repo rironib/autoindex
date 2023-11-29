@@ -26,7 +26,7 @@ Licence: GPL v3
 
     include "inc/init.php";
 
-    $links[] = mai_img("arr.gif") . " Rename File";
+    $links[] = " » " . " Rename File";
 
     include "header.php";
     ?>
