@@ -15,8 +15,8 @@ if (!is_admin()) {
 	exit;
 }
 
-$links[] = mai_img("arr.gif") . " <a href='index.php'>$lang->admincp </a>";
-$links[] = mai_img("arr.gif") . " Mass File Renamer ";
+$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
+$links[] = " » " . " Mass File Renamer ";
 
 
 if ($_POST) {
