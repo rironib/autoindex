@@ -3,7 +3,7 @@
 include "inc/init.php";
 $plugins->run_hook("usr_set_top");
 
-$links[] = mai_img("arr.gif") . " $lang->settings ";
+$links[] = " » " . " $lang->settings ";
 
 if ($_POST['items']) {
 	$_SESSION['perp'] = (int)$_POST['items'];
