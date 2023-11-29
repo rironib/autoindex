@@ -14,3 +14,6 @@ a:hover,
 a:focus {
   color: #2c75b1;
 }
+.container {
+  min-height: calc(100vh - 9.8rem);
+}
