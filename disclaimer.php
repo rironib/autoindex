@@ -8,7 +8,7 @@ Licence: GPL v3
 
 include "inc/init.php";
 
-$links[] = mai_img("arr.gif") . " Disclaimer";
+$links[] = " » " . " Disclaimer";
 include "header.php";
 
 echo "
