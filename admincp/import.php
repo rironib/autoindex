@@ -15,8 +15,9 @@ if (!is_admin()) {
 	exit;
 }
 
-$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
-$links[] = " » " . " $lang->import_files ";
+$links[] = "<li class='breadcrumb-item'><a href='$set->url/admincp/'>$lang->admincp</a></li>";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>$lang->import_files</li>";
+
 $message = '';
 
 $all_folders = $db->select("SELECT `path` FROM `" . MAI_PREFIX . "files` WHERE `size` = '0'");

@@ -19,8 +19,9 @@ if (!is_admin()) {
 	header("Location: $set->url");
 	exit;
 }
-$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
-$links[] = " » " . " $lang->plugin_manager";
+
+$links[] = "<li class='breadcrumb-item'><a href='$set->url/admincp/'>$lang->admincp</a></li>";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>$lang->plugin_manager</li>";
 
 $plugins->load(true); // we don't run plugins here
 $act = $_GET['act'];
@@ -107,6 +108,9 @@ if ($act == "uninstall") {
 
 ////// settings
 elseif ($act == "settings") {
+
+	$links[count($links) - 1] = "<li class='breadcrumb-item'><a href='$set->url/admincp/plugin_manager.php'>$lang->plugin_manager</a></li>";
+	$links[] = "<li class='breadcrumb-item active' aria-current='page'>Plugin Settings</li>";
 
 	$plug = $_GET['plugin'];
 

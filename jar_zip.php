@@ -26,7 +26,7 @@ Licence: GPL v3
 
     include "inc/init.php";
 
-    $links[] = " » " . " Rename File";
+    $links[] = "<li class='breadcrumb-item active' aria-current='page'>Rename File</li>";
 
     include "header.php";
     ?>

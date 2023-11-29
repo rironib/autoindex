@@ -20,8 +20,9 @@ if ($ext->extension == 'mp4' || $ext->extension == '3gp' || $ext->extension == '
 	exit;
 }
 
-$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
-$links[] = " » " . " Watermark ";
+$links[] = "<li class='breadcrumb-item'><a href='$set->url/admincp/'>$lang->admincp</a></li>";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>Watermark</li>";
+
 if (!extension_loaded('ffmpeg')) {
 	die('FFMPEG Not Installed!');
 }

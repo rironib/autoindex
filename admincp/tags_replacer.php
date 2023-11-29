@@ -39,8 +39,8 @@ if (!is_admin()) {
 
 $fid = (int)$_GET['id'];
 
-$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
-$links[] = " » " . " <a href='$set->url/index.php'>$lang->file_manager </a>";
+$links[] = "<li class='breadcrumb-item'><a href='$set->url/admincp/'>$lang->admincp</a></li>";
+$links[] = "<li class='breadcrumb-item'><a href='$set->url'>$lang->file_manager</a></li>";
 
 require_once('../lib/getid3/getid3.php');
 require_once('../lib/getid3/write.php');
@@ -129,7 +129,8 @@ if (isset($_POST['suffix'])) {
     }
 }
 
-$links[] = " » " . " Tags Replacer";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>Tags Replacer</li>";
+
 $title = ($_GET['act'] == 'change' ? 'Change tags all of mp3 file' : ($_GET['act'] == 'suffix' ? 'Add Suffix to mp3 Tags' : ($_GET['act'] == 'replace' ? 'Replace text tags all of mp3 file' :
     'Mass Mp3Tags Editor'
 )));

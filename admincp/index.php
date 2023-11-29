@@ -1,11 +1,11 @@
 <?php
 
-// admincp/index.php
-
 include "../inc/init.php";
 $plugins->run_hook("admin_top");
 
-$links[] = " » " . " $lang->admincp";
+
+
+$links[] = "<li class='breadcrumb-item active' aria-current='page'><a href='$set->url/admincp/'>$lang->admincp</a></li>";
 
 
 if (((sha1($_POST['pass']) == $set->sinfo->admin_pass) && ($_POST['token'] == $_SESSION['token'])) or is_admin()) {

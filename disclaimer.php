@@ -8,7 +8,8 @@ Licence: GPL v3
 
 include "inc/init.php";
 
-$links[] = " » " . " Disclaimer";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>Disclaimer</li>";
+
 include "header.php";
 
 echo "

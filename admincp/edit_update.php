@@ -16,8 +16,8 @@ if (!$update) {
 	header("Location: $set->url");
 	exit;
 }
-$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
-$links[] = " » " . " Edit Update ";
+$links[] = "<li class='breadcrumb-item'><a href='$set->url/admincp/'>$lang->admincp</a></li>";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>Edit Update</li>";
 
 include "../header.php";
 

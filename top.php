@@ -3,12 +3,11 @@
 // ionutvmi@gmail.com 
 // Sep 2012
 // master-land.net
+
 include "inc/init.php";
 include "lib/pagination.class.php";
 
-
-
-$links[] = " » " . " Top Files ";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>Top Files</li>";
 
 include "header.php";
 

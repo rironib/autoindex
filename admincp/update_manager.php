@@ -8,8 +8,9 @@ if (!is_admin()) {
 	exit;
 }
 
-$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
-$links[] = " » " . " Update Manager";
+$links[] = "<li class='breadcrumb-item'><a href='$set->url/admincp/'>$lang->admincp</a></li>";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>Update Manager</li>";
+
 $act = $_GET['act'];
 
 include "../header.php";

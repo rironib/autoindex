@@ -11,8 +11,7 @@ include "lib/pagination.class.php";
 
 $plugins->run_hook("request_top");
 
-$links[] = " » " . " $lang->request ";
-
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>$lang->request</li>";
 
 if ($_POST['rq']) {
 	$request_text = $_POST['rq'];

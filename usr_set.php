@@ -3,7 +3,7 @@
 include "inc/init.php";
 $plugins->run_hook("usr_set_top");
 
-$links[] = " » " . " $lang->settings ";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>$lang->settings</li>";
 
 if ($_POST['items']) {
 	$_SESSION['perp'] = (int)$_POST['items'];

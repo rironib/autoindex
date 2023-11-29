@@ -8,7 +8,8 @@ Licence: GPL v3
 
 include "inc/init.php";
 
-$links[] = " » " . " $lang->TOS";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>$lang->TOS</li>";
+
 include "header.php";
 
 echo "<div class='list-group mb-2'>

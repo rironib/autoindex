@@ -12,8 +12,8 @@ if (!is_admin()) {
 	exit;
 }
 
-$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
-$links[] = " » " . " $lang->upload_files ";
+$links[] = "<li class='breadcrumb-item'><a href='$set->url/admincp/'>$lang->admincp</a></li>";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>$lang->upload_files</li>";
 $maximum = get_max_upl();
 $message = '';
 

@@ -64,10 +64,9 @@ if ($_PS) {
 $plugins = new Plugins();
 $plugins->load();
 
+// $links[] = " » " . "&nbsp;<a href='$set->url'>$lang->Home</a>";
 
-
-
-$links[] = " » " . "&nbsp;<a href='$set->url'>$lang->Home</a>";
+$links[] = "<li class='breadcrumb-item'><a href='$set->url'>$lang->Home</a></li>";
 
 $plugins->run_hook("init");
 

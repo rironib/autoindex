@@ -38,8 +38,8 @@ if (!is_admin()) {
 }
 $fid = (int)$_GET['id'];
 
-$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
-$links[] = " » " . " <a href='$set->url/index.php'>$lang->file_manager </a>";
+$links[] = "<li class='breadcrumb-item'><a href='$set->url/admincp/'>$lang->admincp</a></li>";
+$links[] = "<li class='breadcrumb-item'><a href='$set->url'>$lang->file_manager</a></li>";
 
 require_once('../lib/getid3/getid3.php');
 require_once('../lib/getid3/write.php');
@@ -55,8 +55,10 @@ if ($_GET['act'] == 'edit') {
         $mp3_handler->setOption(array('encoding' => $mp3_tagformat));
         $filepath = ".." . $file->path;
         $title = "Edit Tags " . $file->name;
-        $links[] = " » " . " <a href='$set->url/data/file/$file->id/" . mai_converturl($file->name) . ".html'>$file->name </a>";
-        $links[] = " » " . " Edit Tags";
+
+        $links[] = "<li class='breadcrumb-item'><a href='$set->url/data/file/$file->id/" . mai_converturl($file->name) . "/'>$file->name</a></li>";
+        $links[] = "<li class='breadcrumb-item active' aria-current='page'>Edit Tags</li>";
+
         include "../header.php";
         if (file_exists($filepath)) {
             $infos = $mp3_handler->analyze($filepath);

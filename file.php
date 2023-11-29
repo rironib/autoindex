@@ -140,12 +140,15 @@ foreach (explode('/', substr($file->path, 7)) as $dr) {
 	if (trim($dr != "")) {
 		$_dr .= "/" . $dr;
 		$id = $db->get_row("SELECT `id`,`name` FROM `" . MAI_PREFIX . "files` WHERE `path` = '/files" . $db->escape($_dr) . "'");
-		$links[] = " » " . "&nbsp;<a href='$set->url/data/" . $id->id . "/" . mai_converturl($id->name) . "/'>" . htmlentities($id->name) . "</a>";
+
+		$links[] = "<li class='breadcrumb-item'><a href='$set->url/data/" . $id->id . "/" . mai_converturl($id->name) . "/'>" . htmlentities($id->name) . "</a></li>";
 	}
 }
 if (is_admin()) {
 	$_admin = "<a href='$set->url/admincp/actions.php?act=edit&id=$file->id'  class='btn btn-primary link-light fw-normal'>$lang->edit</a> <a href='$set->url/admincp/actions.php?act=delete&id=$file->id' class='btn btn-danger link-light fw-normal'>$lang->delete</a>";
 }
+
+$links[count($links) - 1] = "<li class='breadcrumb-item'>" . htmlentities($id->name) . "</li>";
 
 include "header.php";
 $tpl->grab("file.tpl", 'file');

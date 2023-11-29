@@ -11,7 +11,8 @@ if ($total_results > 0) {
 	if ($page > ceil($total_results / $perpage)) $page = ceil($total_results / $perpage);
 	$start = ($page - 1) * $perpage;
 
-	$links[] = " » " . " $lang->more_updates / Page: $page";
+	$links[] = "<li class='breadcrumb-item active' aria-current='page'>$lang->more_updates / Page: $page</li>";
+
 	$s_pages = new pag($total_results, $page, $perpage);
 
 	$show_pages = "<span class='page-link text-dark' href='#'>$lang->pages : </span>" . $s_pages->pages;

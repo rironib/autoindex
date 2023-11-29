@@ -10,8 +10,8 @@ if (!is_admin()) {
     exit;
 }
 
-$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
-$links[] = " » " . " Web Scanner ";
+$links[] = "<li class='breadcrumb-item'><a href='$set->url/admincp/'>$lang->admincp</a></li>";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>File Scanner</li>";
 
 $folder_count = 0;
 $files_count = 0;
@@ -66,16 +66,12 @@ foreach ($extra as $extra)
 
 include "../header.php";
 
-echo "
-<div class=''>
-    <ul class='list-group my-2'>
-        <li class='list-group-item fs-5 fw-bold active'>Web Scanner</li>
+echo "<ul class='list-group my-2'>
+        <li class='list-group-item fs-5 fw-bold active'>File Scanner</li>
         <li class='list-group-item'>Scan Complete!</li>
         <li class='list-group-item'>New folders: " . $folder_count . "</li>
         <li class='list-group-item'>New files: " . $files_count . "</li>
-    </ul>
-</div>
-";
+    </ul>";
 
 include "../footer.php";
 

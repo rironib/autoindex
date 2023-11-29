@@ -22,9 +22,8 @@ if (!is_admin()) {
     exit;
 }
 
-$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
-$links[] = " » " . " <a href='?'>$lang->tpl_editor</a>";
-
+$links[] = "<li class='breadcrumb-item'><a href='$set->url/admincp/'>$lang->admincp</a></li>";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'>$lang->tpl_editor</li>";
 
 $act = $_GET['act'];
 
@@ -34,7 +33,9 @@ if ($act == 'edit') {
     if (!file_exists($file))
         die("File does not exists !");
 
-    $links[] = " » " . " <a href='?act=edit&f=" . urlencode(basename($file)) . "'>" . basename($file) . "</a>";
+
+    $links[count($links) - 1] = "<li class='breadcrumb-item'><a href='$set->url/admincp/tpl_editor.php'>$lang->tpl_editor</a></li>";
+    $links[] = "<li class='breadcrumb-item active' aria-current='page'>" . basename($file) . "</li>";
 
     if ($_POST)
         if (file_put_contents($file, $_POST['data']))

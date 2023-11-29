@@ -18,9 +18,8 @@ if (!is_admin()) {
 }
 $fid = (int)$_GET['id'];
 
-
-$links[] = " » " . " <a href='index.php'>$lang->admincp </a>";
-$links[] = " » " . " <a href='$set->url/index.php'>$lang->file_manager </a>";
+$links[] = "<li class='breadcrumb-item'><a href='$set->url/admincp/'> $lang->admincp</a></li>";
+$links[] = "<li class='breadcrumb-item active' aria-current='page'><a href='$set->url'>$lang->file_manager</a></li>";
 
 // add folder
 if (isset($_GET['act']) && $_GET['act'] == 'add') {
@@ -70,7 +69,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'add') {
 		}
 	}
 
-	$links[] = " » " . " $lang->add_folder ";
+	$links[] = "<li class='breadcrumb-item active' aria-current='page'>$lang->add_folder</li>";
 
 	$form .= "<form action='#' method='post'>
         <div class='list-group mb-2'>
@@ -99,9 +98,9 @@ if ($_GET['act'] == 'edit') {
 	$plugins->run_hook("admin_actions_edit_top");
 
 	if ($file->size > 0)
-		$links[] = " » " . " <a href='$set->url/data/file/$file->id/" . mai_converturl($file->name) . "'>$file->name </a>";
+		$links[] = "<li class='breadcrumb-item'>" . " <a href='$set->url/data/file/$file->id/" . mai_converturl($file->name) . "'>$file->name </a></li>";
 	else
-		$links[] = " » " . " <a href='$set->url/data/$file->id/" . mai_converturl($file->name) . "/'>$file->name </a>";
+		$links[] = "<li class='breadcrumb-item'>" . " <a href='$set->url/data/$file->id/" . mai_converturl($file->name) . "/'>$file->name </a></li>";
 	if ($_POST['name']) {
 		$path = "/files" . $_POST['path'];
 		$dirid = $db->get_row("SELECT id FROM `" . MAI_PREFIX . "files` WHERE `path`='" . $path . "'")->id;
@@ -124,16 +123,18 @@ if ($_GET['act'] == 'edit') {
 			$plugins->run_hook("admin_actions_edit");
 		}
 	}
-	$links[] = " » " . " $lang->edit ";
+
+	$links[] = "<li class='breadcrumb-item active' aria-current='page'>$lang->edit</li>";
 
 	$form .= "<form action='#' method='post'>
 	<div class='list-group mb-2'>
 		<div class='list-group-item fs-5 fw-bold active'>" . htmlentities($file->name, ENT_QUOTES) . "</div>
-		<div class='list-group-item'>$lang->name</div>
+		<div class='list-group-item fw-bold'>$lang->name</div>
 		<div class='list-group-item'><input type='text' class='form-control' name='name' value='" . htmlentities($file->name, ENT_QUOTES) . "'></div>
-		<div class='list-group-item'>$lang->icon</div>
+		<div class='list-group-item fw-bold'>$lang->icon</div>
 		<div class='list-group-item'><input type='text' class='form-control' name='icon' value='" . htmlentities($file->icon, ENT_QUOTES) . "'></div>
-		<div class='list-group-item d-flex align-items-center'><span class='me-2'>$lang->path</span> : <select name='path' class='form-control ms-2'><option value=''>./</option>";
+		<div class='list-group-item fw-bold'>$lang->path</div>
+		<div class='list-group-item d-flex align-items-center'><select name='path' class='form-control path'><option value=''>./</option>";
 	$all_folders = $db->select("SELECT `path` FROM `" . MAI_PREFIX . "files` WHERE `size` = '0'");
 
 	foreach ($all_folders as $folder) {
@@ -167,10 +168,11 @@ if ($_GET['act'] == 'delete') {
 	}
 	$plugins->run_hook("admin_actions_delete_top");
 	if ($file->size > 0)
-		$links[] = " » " . " <a href='$set->url/data/file/$file->id/" . mai_converturl($file->name) . "'>$file->name </a>";
+
+		$links[] = "<li class='breadcrumb-item active' aria-current='page'><a href='$set->url/data/file/$file->id/" . mai_converturl($file->name) . "'>$file->name</a></li>";
 	else
-		$links[] = " » " . " <a href='$set->url/data/$file->id/" . mai_converturl($file->name) . "/'>$file->name </a>";
-	$links[] = " » " . " $lang->delete ";
+		$links[] = "<li class='breadcrumb-item active' aria-current='page'><a href='$set->url/data/$file->id/" . mai_converturl($file->name) . "/'>$file->name</a></li>";
+	$links[] = "<li class='breadcrumb-item active' aria-current='page'>$lang->delete</li>";
 	if ($_POST['yes']) {
 		if (is_dir(".." . $file->path)) {
 			deleteAll(".." . $file->path);
@@ -203,7 +205,7 @@ if ($_GET['act'] == 'delete') {
 if ($_GET['act'] == 'sphp') {
 	$plugins->run_hook("admin_actions_editset_top");
 
-	$links[count($links) - 1] = " » " . " $lang->config_editor";
+	$links[count($links) - 1] = "<li class='breadcrumb-item active' aria-current='page'>$lang->config_editor</li>";
 
 	$file = MAI_ROOT . "/inc/settings.php";
 	if (!file_exists($file))
@@ -240,7 +242,7 @@ if ($_GET['act'] == 'rtxt') {
 	if (!file_exists($file))
 		die("File does not exists!");
 
-	$links[count($links) - 1] = " » " . " $lang->edit robots.txt";
+	$links[count($links) - 1] = "<li class='breadcrumb-item active' aria-current='page'>$lang->edit robots.txt</li>";
 
 	if ($_POST)
 		if (file_put_contents($file, $_POST['data']))
@@ -269,7 +271,7 @@ if ($_GET['act'] == 'rtxt') {
 if ($_GET['act'] == 'editset') {
 	$plugins->run_hook("admin_actions_editset_top");
 
-	$links[count($links) - 1] = " » " . " $lang->settings";
+	$links[count($links) - 1] = "<li class='breadcrumb-item active' aria-current='page'>$lang->settings</li>";
 
 	if ($_POST['msg']) {
 		if ($_POST['msg']) {
