@@ -11,7 +11,7 @@ if ($total_results > 0) {
 	if ($page > ceil($total_results / $perpage)) $page = ceil($total_results / $perpage);
 	$start = ($page - 1) * $perpage;
 
-	$links[] = mai_img("arr.gif") . " $lang->more_updates / Page: $page";
+	$links[] = " » " . " $lang->more_updates / Page: $page";
 	$s_pages = new pag($total_results, $page, $perpage);
 
 	$show_pages = "<span class='page-link text-dark' href='#'>$lang->pages : </span>" . $s_pages->pages;
