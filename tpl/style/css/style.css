@@ -17,3 +17,7 @@ a:focus {
 .container {
   min-height: calc(100vh - 9.8rem);
 }
+.path {
+  width: 60% !important;
+  margin-right: 0.5rem;
+}
