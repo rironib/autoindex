@@ -8,7 +8,7 @@ include "lib/pagination.class.php";
 
 
 
-$links[] = mai_img("arr.gif") . " Top Files ";
+$links[] = " » " . " Top Files ";
 
 include "header.php";
 
