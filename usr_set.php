@@ -7,7 +7,7 @@ $links[] = "<li class='breadcrumb-item active' aria-current='page'>$lang->settin
 
 if ($_POST['items']) {
 	$_SESSION['perp'] = (int)$_POST['items'];
-	$form .= "<div class='green'>$lang->saved </div>";
+	$form .= "<div class='alert alert-success'>$lang->saved </div>";
 }
 
 $form .= "<form action='?' method='post'>
