@@ -14,7 +14,7 @@
     RewriteRule ^tos$ tos.php [QSA,L]
     RewriteRule ^disclaimer$ disclaimer.php [QSA,L]
     RewriteRule ^sitemap.xml$ sitemap.php [QSA,L]
-    RewriteRule ^feed$ rss.php [QSA,L]
+    RewriteRule ^feed.rss$ rss.php [QSA,L]
 
     # Custom Rule for 404 errors
     ErrorDocument 404 /404.php
