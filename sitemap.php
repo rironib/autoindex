@@ -14,7 +14,7 @@ $file_data = $db->select("SELECT * FROM `" . MAI_PREFIX . "files` ORDER BY `id` 
 $file_data2 = $db->select("SELECT * FROM `" . MAI_PREFIX . "files` ORDER BY `id` DESC LIMIT 0,1");
 
 echo "<?xml version='1.0' encoding='UTF-8'?>\n";
-echo '<?xml-stylesheet type="text/xsl" href="' . $set->url . '/sitemap.xsl"?>';
+echo '<?xml-stylesheet type="text/xsl" href="' . $set->url . '/tpl/style/sitemap.xsl"?>' . "\n";
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">';
 
 $baseUrl = $set->url;
