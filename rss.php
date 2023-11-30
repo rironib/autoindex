@@ -6,7 +6,7 @@
 // Check for the "rss.php" in the URL and redirect to "feed"
 if (preg_match("#rss.php#s", $_SERVER['REQUEST_URI'])) {
     header('HTTP/1.1 301 Moved Permanently');
-    header('Location: feed');
+    header('Location: feed.rss');
     exit;
 } else {
     header('Content-Type: application/xml; charset=utf-8');
