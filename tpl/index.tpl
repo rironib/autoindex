@@ -32,7 +32,7 @@
         alt="." />&nbsp;Disclaimer</a></div>
   <div class="list-group-item"><a href="{$url}/sitemap.xml"><img src="{$MAI_TPL}style/images/gdir.gif"
         alt="." />&nbsp;Sitemap</a></div>
-  <div class="list-group-item"><a href="{$url}/feed"><img src="{$MAI_TPL}style/images/gdir.gif" alt="." />&nbsp;RSS
+  <div class="list-group-item"><a href="{$url}/feed.rss"><img src="{$MAI_TPL}style/images/gdir.gif" alt="." />&nbsp;RSS
       Feed</a></div>
   <div class="list-group-item"><a href="{$url}/top.php"><img src="{$MAI_TPL}style/images/gdir.gif" alt="." />&nbsp;Top
       Files</a></div>
