@@ -1,97 +1,92 @@
 <?php
+
 /**
-* adverts plugin - it will display html ads in header and/or footer
-* author: ionutvmi@gmail.com
-* 21-Sep-2012
-* this can be used as reference for making a settings page in Plugin Manager
-* settings type:
-*	yesno
-*	onoff
-*	textarea
-*	text
-*	select \n 1=ok \n 2=no
-*	radio \n 1=ok \n 2=no
-*	checkbox \n 1=top 2=bottom
-*
-*/
+ * Adverts Plugin
+ * Displays HTML ads in the header and/or footer.
+ * Author: ionutvmi@gmail.com
+ * Date: 21-Sep-2012
+ * Website: http://master-land.net
+ */
 
+// Hooks
+$plugins->add_hook("header", "ads_show_top");
+$plugins->add_hook("footer", "ads_show_foot");
 
-$plugins->add_hook("header","ads_show_top");
-$plugins->add_hook("footer","ads_show_foot");
-
-function ads_info(){
-
-	return	array(	
-	"name" => "Adverts Plugin",
-	"author" => "ionutvmi",
-	"author_site" => "http://master-land.net",
-	"description" => "it will display html ads in header and/or footer",
+// Plugin Information
+function ads_info()
+{
+	return array(
+		'name' => 'Adverts Plugin',
+		'author' => 'ionutvmi',
+		'author_site' => 'http://master-land.net',
+		'description' => 'Displays HTML ads in the header and/or footer',
 	);
-	
 }
 
-function ads_install(){
+// Installation
+function ads_install()
+{
 	global $db;
-	// settings 
-	$settings_data = array(
-	"name" => "ads_show", // name of the setting must be unique so adding the plugin name is a good practice
-	"value" => "2", // default value
-	"title" => "Place ads on:", // title will be displayed on settings page
-	"description" => "the place where the ads will be displayed", // description
-	"type" => "select \n 0=Top \n 1=Bottom \n 2=Both", // type check master-land.net for more info
-	"plugin" => "ads", // your plugin <name>
-	);
-	$settings_data2 = array(
-	"name" => "ads_show_text_top", 
-	"value" => $db->escape("<div class='ad'><a href='http://mirazmac.info'>Sample Text Link Ad on Top</a></div>"), 
-	"title" => "Top Ad", 
-	"description" => "the ad content that will be placed in header", 
-	"type" => "textarea",
-	"plugin" => "ads", 
-	);
-	$settings_data3 = array(
-	"name" => "ads_show_text_foot", 
-	"value" => $db->escape("<div class='ad'><a href='http://mirazmac.info'>Sample Text Link Ad on Footer</a></div>"), 
-	"title" => "Footer Ad", 
-	"description" => "the ad content that will be placed in footer", 
-	"type" => "textarea",
-	"plugin" => "ads", 
-	);
-	$db->insert_array(MAI_PREFIX."plugins_settings",$settings_data);
-	$db->insert_array(MAI_PREFIX."plugins_settings",$settings_data2);
-	$db->insert_array(MAI_PREFIX."plugins_settings",$settings_data3);
 
+	// Settings
+	$settings = array(
+		array(
+			'name' => 'ads_show',
+			'value' => '2',
+			'title' => 'Place ads on:',
+			'description' => 'The place where the ads will be displayed',
+			'type' => 'select',
+			'options' => '0=Top|1=Bottom|2=Both',
+			'plugin' => 'ads',
+		),
+		array(
+			'name' => 'ads_show_text_top',
+			'value' => '<div class="ad"><a href="http://mirazmac.info">Sample Text Link Ad on Top</a></div>',
+			'title' => 'Top Ad',
+			'description' => 'The ad content that will be placed in the header',
+			'type' => 'textarea',
+			'plugin' => 'ads',
+		),
+		array(
+			'name' => 'ads_show_text_foot',
+			'value' => '<div class="ad"><a href="http://mirazmac.info">Sample Text Link Ad on Footer</a></div>',
+			'title' => 'Footer Ad',
+			'description' => 'The ad content that will be placed in the footer',
+			'type' => 'textarea',
+			'plugin' => 'ads',
+		),
+	);
+
+
+	$db->insert_array(MAI_PREFIX . 'plugins_settings', $setting);
 }
 
-function ads_is_installed(){
-	global $db;
-	if($db->count("SELECT `name` FROM `".MAI_PREFIX."plugins_settings` WHERE `plugin`='ads'") > 0)
-		return true;
-	
-	return false;
-}
+// Advertisement Display
+function ads_show_top($value)
+{
+	global $set;
 
-function ads_uninstall(){
-	global $db;
-	$db->query("DELETE FROM `".MAI_PREFIX."plugins_settings` WHERE `plugin`='ads'");
-}
-
-// no special activate/deactivate required here
-
-function ads_show_top($value){
-	global $db,$set;
-	
-	if($set->plugins["ads_show"] == '0' OR $set->plugins["ads_show"] == '2')
-		$value = str_replace("<!--header end-->","<!--header end-->".$set->plugins["ads_show_text_top"],$value);
-	
+	// Check if ads should be displayed at the top
+	if ($set->plugins['ads_show'] == '0' || $set->plugins['ads_show'] == '2') {
+		$value = str_replace('<!--header end-->', '<!--header end-->' . $set->plugins['ads_show_text_top'], $value);
+	}
 	return $value;
 }
 
-function ads_show_foot($value){
-	global $db,$set;
-	
-	if($set->plugins["ads_show"] == '1' OR $set->plugins["ads_show"] == '2')
-		$value = str_replace("<!--footer start-->","<!--footer start-->".$set->plugins["ads_show_text_foot"],$value);
-	
+function ads_show_foot($value)
+{
+	global $set;
+	// Check if ads should be displayed at the bottom
+	if ($set->plugins['ads_show'] == '1' || $set->plugins['ads_show'] == '2') {
+		$value = str_replace('<!--footer start-->', '<!--footer start-->' . $set->plugins['ads_show_text_foot'], $value);
+	}
 	return $value;
+}
+
+
+// Uninstallation
+function ads_uninstall()
+{
+	global $db;
+	$db->query("DELETE FROM `" . MAI_PREFIX . "plugins_settings` WHERE `plugin`='ads'");
 }
