@@ -7,18 +7,18 @@ $plugins->run_hook("admin_top");
 
 $links[] = "<li class='breadcrumb-item active' aria-current='page'><a href='$set->url/admincp/'>$lang->admincp</a></li>";
 
+if ((hash('sha256', $_POST['pass']) == $set->sinfo->admin_pass) && ($_POST['token'] == $_SESSION['token']) or is_admin()) {
 
-if (((sha1($_POST['pass']) == $set->sinfo->admin_pass) && ($_POST['token'] == $_SESSION['token'])) or is_admin()) {
 	$_SESSION['token'] = '';
 
 	if ($_POST['r'] == 1) {
 		$path_info = parse_url($set->url);
-		$hashed_password = sha1($_POST['pass']);
+		$hashed_password = hash('sha256', $_POST['pass']);
 		setcookie("pass", $hashed_password, time() + 3600 * 24 * 7, $path_info['path']);
 	}
 
 	if (!$_SESSION['adminpass']) {
-		$_SESSION['adminpass'] = sha1($_POST['pass']);
+		$_SESSION['adminpass'] = hash('sha256', $_POST['pass']);
 	}
 
 	$request_new = $db->count("SELECT `id` FROM `" . MAI_PREFIX . "request` WHERE `reply`=''");
@@ -48,6 +48,7 @@ if (((sha1($_POST['pass']) == $set->sinfo->admin_pass) && ($_POST['token'] == $_
 	$tpl->assign('config_editor', $lang->config_editor);
 	$tpl->assign('tpl_editor', $lang->tpl_editor);
 	$tpl->assign('robots_editor', $lang->robots_editor);
+	$tpl->assign('sitemap_editor', $lang->sitemap_editor);
 	$tpl->assign('plugins_market', $lang->plugins_market);
 	$tpl->assign('upload_files', $lang->upload_files);
 	$tpl->assign('mark', mai_img('arr.gif'));
