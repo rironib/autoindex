@@ -149,7 +149,7 @@ if ($_GET['act'] == 'edit') {
 
 	$form .= "</select>/" . basename($file->path) . "</div>
 	<div class='list-group-item'>
-		<textarea class='form-control' rows='5' name='description' placeholder='Description'>" . htmlentities($file->description) . "</textarea>
+		<textarea class='form-control' rows='10' name='description' placeholder='Description'>" . htmlentities($file->description) . "</textarea>
 	</div>
 	</div>
 	<div class='text-center'>
@@ -222,7 +222,7 @@ if ($_GET['act'] == 'sphp') {
 						<div class='list-group-item fs-5 fw-bold active'>$lang->config_editor</div>
 						<div class='list-group-item'>
 							<div class='mb-2'>
-                				<textarea class='form-control' rows='5' name='data'>" . htmlentities(file_get_contents($file)) . "</textarea>
+                				<textarea class='form-control' rows='10' name='data'>" . htmlentities(file_get_contents($file)) . "</textarea>
 							</div>
 							<div class='text-center'>
                     			<input type='submit' class='btn btn-dark px-4' name='ok' value='$lang->save'>
@@ -238,7 +238,7 @@ if ($_GET['act'] == 'sphp') {
 if ($_GET['act'] == 'rtxt') {
 	$plugins->run_hook("admin_actions_editset_top");
 
-	$file = MAI_ROOT . "/robots.txt";
+	$file = MAI_ROOT . "/robots.php";
 	if (!file_exists($file))
 		die("File does not exists!");
 
@@ -255,7 +255,40 @@ if ($_GET['act'] == 'rtxt') {
 					<div class='list-group-item fs-5 fw-bold active'>$lang->edit robots.txt</div>
 					<div class='list-group-item'>
 						<div class='mb-2'>
-                    		<textarea class='form-control' rows='5' name='data'>" . htmlentities(file_get_contents($file)) . "</textarea>
+                    		<textarea class='form-control' rows='10' name='data'>" . htmlentities(file_get_contents($file)) . "</textarea>
+                		</div>
+						<div class='text-center'>
+                    		<input type='submit' class='btn btn-dark px-4' name='ok' value='$lang->save'>
+                		</div>
+					</div>
+				</div>
+            </form>";
+
+	$plugins->run_hook("admin_actions_editset_end");
+}
+
+// edit settings
+if ($_GET['act'] == 'smap') {
+	$plugins->run_hook("admin_actions_editset_top");
+
+	$file = MAI_ROOT . "/sitemap.php";
+	if (!file_exists($file))
+		die("File does not exists!");
+
+	$links[count($links) - 1] = "<li class='breadcrumb-item active' aria-current='page'>$lang->edit Sitemap</li>";
+
+	if ($_POST)
+		if (file_put_contents($file, $_POST['data']))
+			$form .= "<div class='alert alert-success'>$lang->saved</div>";
+		else
+			$form .= "<div class='alert alert-danger'>$lang->error</div>";
+
+	$form .= "<form action='#' method='post'>
+					<div class='list-group mb-2'>
+					<div class='list-group-item fs-5 fw-bold active'>$lang->edit Sitemap</div>
+					<div class='list-group-item'>
+						<div class='mb-2'>
+                    		<textarea class='form-control' rows='10' name='data'>" . htmlentities(file_get_contents($file)) . "</textarea>
                 		</div>
 						<div class='text-center'>
                     		<input type='submit' class='btn btn-dark px-4' name='ok' value='$lang->save'>
@@ -276,8 +309,8 @@ if ($_GET['act'] == 'editset') {
 	if ($_POST['msg']) {
 		if ($_POST['msg']) {
 			if (trim($_POST['pass']) != '') {
-				$pass = ", `admin_pass` = '" . sha1($_POST['pass']) . "'";
-				$_SESSION['adminpass'] = sha1($_POST['pass']);
+				$pass = ", `admin_pass` = '" . hash('sha256', $_POST['pass']) . "'";
+				$_SESSION['adminpass'] = hash('sha256', $_POST['pass']);
 			}
 			if ($db->query("UPDATE `" . MAI_PREFIX . "settings` SET $pass")) {
 				$form .= "<div class='alert alert-success'>$lang->saved</div>";
