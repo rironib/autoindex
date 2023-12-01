@@ -18,8 +18,6 @@ receive future plugin updates.
 
 //Hooks
 $plugins->add_hook("file", "keyword_add");
-$plugins->add_hook("footer", "keyword_stylesheet");
-
 
 function keyword_info()
 {
@@ -36,19 +34,6 @@ function keyword_install()
 	global $db;
 	// settings menu
 	$settings_data = array(
-		"name" => "keyword_style",
-		"value" => "background: none repeat scroll 0% 0% #FFF;
-padding: 5px;
-border: 1px solid rgba(224, 224, 224, 1);
-text-align: center;
-margin: 2px 0px;
-font-size: 13px;",
-		"title" => "Keyword cloud stylesheet",
-		"description" => "Customize the div style of keyword",
-		"type" => "textarea",
-		"plugin" => "keyword",
-	);
-	$settings_data2 = array(
 		"name" => "keyword_text",
 		"value" => "%filename% wallpaper download | Free %filename% wallpapers | HD %filename% backgrounds | %filename% desktop wallpapers  | %filename% mobile wallpapers | 4K %filename% wallpapers | %filename% high-resolution images | %filename% wallpaper gallery | Download %filename% pictures | %filename% wallpaper collection | %filename% free HD backgrounds | Best %filename% wallpapers | %filename% desktop backgrounds | %filename% phone wallpapers | %filename% images for download | Top %filename% wallpapers | %filename% widescreen wallpapers | %filename% wallpaper categories | %filename% nature wallpapers | Abstract %filename% wallpapers | %filename% scenic backgrounds | %filename% minimalist wallpapers | %filename% technology wallpapers | %filename% travel wallpapers | %filename% colorful backgrounds | %filename% dark mode wallpapers | %filename% 3D wallpapers | %filename% fantasy wallpapers | %filename% vintage backgrounds | %filename% dual monitor wallpapers",
 		// "value" => "Download New %filename% mp3 Song Free download | Download %filename% Bangla full Album mp3 song | %filename% Songs Album | %filename% song download, mp3, Amr, Sound Track | %filename% bangla movie download,free | %filename% 192 kbps 64 kbps | %filename% Songs Album 320 kbps download, | %filename% master print download, | %filename% full movie official print download,| %filename% clean download, | %filename% Songs Album mp3 album download , | %filename% mp3 song full album | %filename% Songs Album zip file download, | %filename% mp4 download, | %filename% PC HD Download, | %filename% new high quality download,low quality | %filename% 2015,2016, 2017, 2018 full download, | %filename% Music video download now, | %filename% Music mp3 full mp3 download now, | %filename% CD rip download, | %ext% DVDrip Vcdscam webrip Dvdscam download now, | %filename% 3gp,mp4,avi,mkv download now,full HD | %filename% Download,new movie | %filename% 3gp mp4 avi mkv download,full HD 3gp PC Mp4 3gp download, | %filename% Non retail download game,software,ringtone, | %filename% Grameenphone Welcome Tune Code, | %filename% Caller tune,Teletune,Ichche Tune , Gp wt Code %filename% Movie All Mp3 Songs Album | %filename% full Lyrics | %filename% Bangla Unreleased Mp3 Songs Download | Bollywood %filename% Mp3 Download %filename% Kolkata Bangla Mp3 Download Now",
@@ -57,9 +42,10 @@ font-size: 13px;",
 		"type" => "textarea",
 		"plugin" => "keyword",
 	);
+
 	$db->insert_array(MAI_PREFIX . "plugins_settings", $settings_data);
-	$db->insert_array(MAI_PREFIX . "plugins_settings", $settings_data2);
 }
+
 // After plugin is installed
 function keyword_is_installed()
 {
@@ -95,15 +81,4 @@ function keyword_add($mac = '')
 	$download = $download . "<div class='list-group mb-2'><div class='list-group-item fs-6 text-center'><b style='color:red'>Tags Cloud:</b> $txt</div></div>";
 
 	return $mac;
-}
-
-
-//Now lets embed the stylesheet
-function keyword_stylesheet($value)
-{
-	global $db, $set;
-
-	$value = str_replace("</body>", '<style>.tags_cloud{' . $set->plugins["keyword_style"] . '}</style></body>', $value);
-
-	return $value;
 }
