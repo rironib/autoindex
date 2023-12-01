@@ -86,8 +86,7 @@ $set->perpage = "10"; // how many records per page
 define("MAI_PREFIX","' . $_POST['prefix'] . '");
 						';
 
-			if (!fwrite($fp, trim($content)))
-				$error = 1;
+			if (!fwrite($fp, trim($content)));
 
 			fclose($fp);
 
@@ -112,10 +111,12 @@ define("MAI_PREFIX","' . $_POST['prefix'] . '");
   `voice` int(11) NOT NULL DEFAULT '0',
   `watermark` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;"))	$error = 1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;"));
 
-			if (!$db->query("INSERT INTO `" . $_POST['prefix'] . "files` (`id`, `name`, `path`, `indir`, `views`, `dcount`, `time`, `size`, `icon`,`isdir`) VALUES
-(1, 'Games', '/files/Games', 0, 0, 0, 1348259936, 0, '', 1);"))	$error = 1;
+			if (!$db->query("INSERT INTO `" . $_POST['prefix'] . "files` (`id`, `name`, `path`, `indir`, `views`, `dcount`, `time`, `size`, `icon`, `isdir`) VALUES
+(1, 'New folder', '/files/New folder', 0, 0, 0, 1348259936, 0, '', 1), 
+(2, '6828.jpg', '/files/New folder/6828.jpg', 1, 0, 0, 1348259936, 183086, '', 0), 
+(3, '4171388.png', '/files/4171388.png', 0, 0, 0, 1348259936, 14854, '', 0);"));
 
 			if (!$db->query("CREATE TABLE IF NOT EXISTS `" . $_POST['prefix'] . "plugins_settings` (
   `name` varchar(200) NOT NULL,
@@ -125,37 +126,50 @@ define("MAI_PREFIX","' . $_POST['prefix'] . '");
   `type` text NOT NULL,
   `plugin` text NOT NULL,
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;"))	$error = 1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;"));
+
+			if (!$db->query("INSERT INTO `" . $_POST['prefix'] . "plugins_settings` (`name`, `value`, `title`, `description`, `type`, `plugin`) VALUES
+('top_sort', 'views', 'Sort Top Files By', 'The top files will be sorted by this criteria', 'select \nviews=Views Number \ndcount=Downloads Number', 'top'),
+('top_number', '20', 'Top Files No', 'The number of files to be displayed, keep in mind the there in so pagination', 'text', 'top'),
+('top_sort_type', 'DESC', 'Sort files', 'Order the files should be sorted <b>ASC</b> or <b>DESC</b>', 'select \nASC=ASC \nDESC=DESC', 'top');"));
+
 
 			if (!$db->query("CREATE TABLE IF NOT EXISTS `" . $_POST['prefix'] . "updates` (
   `id` int(11) NOT NULL auto_increment,
   `text` text NOT NULL,
   `time` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;"))	$error = 1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;"));
 
 			if (!$db->query("CREATE TABLE IF NOT EXISTS `" . $_POST['prefix'] . "request` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `text` text NOT NULL,
   `reply` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;"))	$error = 1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;"));
 
 			if (!$db->query("CREATE TABLE IF NOT EXISTS `" . $_POST['prefix'] . "settings` (
 	`admin_pass` varchar(100) NOT NULL,
 	`main_msg` text NOT NULL,
 	`active_plugins` text NOT NULL
-  ) ENGINE=MyISAM DEFAULT CHARSET=latin1;"))	$error = 1;
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"));
 
-			if (!$db->query("INSERT INTO `" . $_POST['prefix'] . "settings` (`admin_pass`, `main_msg`, `active_plugins`) VALUES
-  ('" . sha1(trim($_POST['admin_pass'])) . "', 'Welcome to our site !\r\nHope you enjoy it :D', 'a:0:{}');"))	$error = 1;
+			$adminPassword = hash('sha256', trim($_POST['admin_pass']));
+			$mainMsg = 'Welcome to our site !\r\nHope you enjoy it :D';
+			$activePlugins = 'a:0:{}';
+
+			if (!$db->query("INSERT INTO `" . $_POST['prefix'] . "settings` (`admin_pass`, `main_msg`, `active_plugins`) VALUES ('$adminPassword', '$mainMsg', '$activePlugins')"));
+
+
+			// 			if (!$db->query("INSERT INTO `" . $_POST['prefix'] . "settings` (`admin_pass`, `main_msg`, `active_plugins`) VALUES
+			//   ('" . sha1(trim($_POST['admin_pass'])) . "', 'Welcome to our site !\r\nHope you enjoy it :D', 'a:0:{}');"));
 
 			if (!$db->query("CREATE TABLE IF NOT EXISTS `" . $_POST['prefix'] . "files` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `text` text NOT NULL,
   `time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;"))	$error = 1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;"));
 			if ($error) {
 				echo "<div class='alert alert-danger my-2'>Fatal Error!<br/> Check if <b>/inc/settings.php</b> is writable and if your prefix is correct.</div>";
 			} else {
