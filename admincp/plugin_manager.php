@@ -199,7 +199,7 @@ elseif ($act == "settings") {
 	}
 
 	$content .= "</div>";
-	$content .= "<div class='text-center'><input type='submit' class='btn btn-dark px-4' value='$lang->save'></div></form>";
+	$content .= "<div class='text-center mb-2'><input type='submit' class='btn btn-dark px-4' value='$lang->save'></div></form>";
 } else {
 	// plugin list
 	include "../lib/array_pagination.class.php";
