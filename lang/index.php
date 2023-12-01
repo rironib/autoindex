@@ -88,6 +88,7 @@ $lang["plugins_market"] = "Plugins Market";
 $lang["tpl_editor"] = "TPL Editor";
 $lang["config_editor"] = "Config Editor";
 $lang["robots_editor"] = "Robots Editor";
+$lang["sitemap_editor"] = "Sitemap Editor";
 $lang["activate"] = "Activate";
 $lang["install"] = "Install";
 $lang["uninstall"] = "UnInstall";
