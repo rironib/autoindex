@@ -44,8 +44,6 @@ if (!$set->sinfo) {
 }
 
 
-// Assuming $set is an object that contains 'sinfo' property with 'admin_pass' attribute
-
 // Check if the 'pass' cookie is set and matches the admin password
 if (isset($_COOKIE['pass']) && $_COOKIE['pass'] === $set->sinfo->admin_pass) {
 	// Set the admin password in the session
