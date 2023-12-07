@@ -231,10 +231,17 @@ define("MAI_PREFIX","' . $_POST['prefix'] . '");
 
 				<div class='list-group mb-2'>
     				<div class='list-group-item fs-5 fw-bold active'>Admin Credentials</div>
-				    <div class='list-group-item'>
-						<input type='text' class='form-control' name='admin_pass' placeholder='Password'>
+					<div class='list-group-item'>
+						<div class='input-group'>
+							<input type='password' class='form-control' name='pass' placeholder='{$password}'
+							aria-label='{$password}' id='passwordField'>
+							<button class='btn btn-secondary' type='button' id='show'>SHOW</button>
+						</div>
 					</div>
 				</div>
+
+				
+			
 
 				<div class='my-3 text-center'>
 					<input type='submit' class='btn btn-dark px-4' value='Start Installation'></input>
@@ -245,15 +252,33 @@ define("MAI_PREFIX","' . $_POST['prefix'] . '");
 		<footer class="bg-light text-center text-white">
 			<!-- Footer Menu -->
 			<div class="bg-secondary-subtle p-2 text-dark">
-				<a href="<?php echo dirname($_SERVER['REQUEST_URI']); ?>"> Home </a> |
-				<a href="<?php echo dirname($_SERVER['REQUEST_URI']); ?>/tos.php">TOS</a> |
-				<a href="<?php echo dirname($_SERVER['REQUEST_URI']); ?>/admincp">Admin Panel</a>
+				<a href="<?php echo dirname($_SERVER['REQUEST_URI']); ?>" class="text-decoration-none"> Home </a> |
+				<a href="<?php echo dirname($_SERVER['REQUEST_URI']); ?>/tos.php" class="text-decoration-none">TOS</a> |
+				<a href="<?php echo dirname($_SERVER['REQUEST_URI']); ?>/admincp" class="text-decoration-none">Admin Panel</a>
 			</div>
 
 			<!-- Copyright -->
 			<div class="copyright bg-dark text-center p-3">ⓒ 2023 <a class="text-light" href="#">NextAutoIndexPro</a></div>
 		</footer>
 	</div>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			var passwordField = document.getElementById("passwordField");
+			var showButton = document.getElementById("show");
+
+			showButton.addEventListener("click", function() {
+				if (passwordField.type === "password") {
+					passwordField.type = "text";
+					showButton.textContent = "HIDE";
+				} else {
+					passwordField.type = "password";
+					showButton.textContent = "SHOW";
+				}
+			});
+		});
+	</script>
+
 </body>
 
 </html>
