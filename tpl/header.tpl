@@ -9,7 +9,9 @@
   <title>{$title}</title>
   <meta name="keywords" content="">
   <meta name="description" content="">
+
   {$hide_links}
+
 </head>
 
 <body>
@@ -22,7 +24,7 @@
   <div class="container">
 
     <nav id='breadcrumb' aria-label="breadcrumb">
-      <ol class="breadcrumb bg-secondary-subtle p-2 mb-1">
+      <ol class="breadcrumb bg-secondary-subtle p-2 mt-2">
         {$links}
       </ol>
     </nav>
