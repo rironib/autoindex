@@ -3,8 +3,6 @@
 include "../inc/init.php";
 $plugins->run_hook("admin_top");
 
-
-
 $links[] = "<li class='breadcrumb-item active' aria-current='page'><a href='$set->url/admincp/'>$lang->admincp</a></li>";
 
 if ((hash('sha256', $_POST['pass']) == $set->sinfo->admin_pass) && ($_POST['token'] == $_SESSION['token']) or is_admin()) {
