@@ -1,7 +1,7 @@
 <?php
 
 include "../inc/init.php";
-include '' . MAI_ROOT . 'lib/pagination.class.php';
+include MAI_ROOT . "lib/pagination.class.php";
 
 if (!is_admin()) {
 	header("Location: $set->url");
@@ -14,6 +14,8 @@ $links[] = "<li class='breadcrumb-item active' aria-current='page'>Update Manage
 $act = $_GET['act'];
 
 include "../header.php";
+
+echo '<script src="' . $set->url . '/tpl/style/js/update.js"></script>';
 
 echo '<form method="POST" action="update_manager.php?act=add">
 		<div class="list-group mb-2">
@@ -29,37 +31,12 @@ echo '<form method="POST" action="update_manager.php?act=add">
 				</div>
 			</div>
 			<div class="list-group-item d-flex align-items-center">
-				<input type="text" id="demo" class="form-control me-2" value="» &lt;a href=&quot;&quot;&gt;&lt;/a&gt; was added!">
+				<input type="text" id="example" class="form-control me-2" value="» &lt;a href=&quot;&quot;&gt;&lt;/a&gt; was added!">
 				<input type="button" class="btn btn-dark" onclick="copyToClipboard()" value="Copy">
         	</div>
 		</div>
-	</form>
-	
-	<script>
-		// Clear Textarea
-		function clearTextarea() {
-        	var textarea = document.getElementById("updateText");
-        	textarea.value = "";
-    	}
-		//Paste to Textarea
-        function pasteTextarea() {
-            var textarea = document.getElementById("updateText");
-            navigator.clipboard.readText()
-                .then((clipboardText) => {
-                    textarea.value = clipboardText;
-                })
-                .catch((error) => {
-                    console.error("Error reading from clipboard: ", error);
-                });
-        }
-		// Copy to CLipboard
-        function copyToClipboard() {
-            var copyText = document.getElementById("demo");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            document.execCommand("copy");
-        }
-    </script>';
+	</form>';
+
 $msg = '';
 switch ($act) {
 	case 'del':
