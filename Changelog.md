@@ -1,13 +1,27 @@
-Next AutoIndex Reborn 1.0
-This Release is a complete upgrade of Next Auto Index Reborn. Its stand-alone and not* upgradeable from older versions. Since many things are added so the whole database structure has changed.
+# Next AutoIndex Reborn (v1.0)
 
-# New Features [Auto Index Reborn]
+This Release is a complete upgrade of Next Auto Index Reborn. Its stand-alone and not\* upgradeable from older versions. Since many things are added so the whole database structure has changed.
+
+### New Features [Auto Index Reborn]
+
 ===========================
+
 - Fix errors
 - Automated Sitemaps Updated
 
-# Old Features [Next Auto Index]
+11/08/2023
+-- Updated install.php
+-- Added admin_pass
+-- Remove main_msg
+-- Added Bootstrap 5.3
+
+12/08/2023
+-- Change on .htaccess
+
+### Old Features [Next Auto Index]
+
 ===========================
+
 - Auto Mp3 Voice Track
 - Real Video Watermark(requires ffmpeg)
 - Powerful Updates Manager
@@ -17,9 +31,10 @@ This Release is a complete upgrade of Next Auto Index Reborn. Its stand-alone an
 - Auto Ping Sitemaps to Search Engines
 - New Plugins Store
 
+### Old Features [Master Auto Index]
 
-# Old Features [Master Auto Index]
 ============================
+
 - Image Watermarking (Requires GD library)
 - Mass Mp3 Tag Editor
 - Upload/Import via URL
@@ -34,4 +49,4 @@ This Release is a complete upgrade of Next Auto Index Reborn. Its stand-alone an
 - Plugins market with free plugins.
 - Highly Secure
 - Upload Thumbnails for every types of file
-- Preview for almost evry types of file
+- Preview for almost every types of file
