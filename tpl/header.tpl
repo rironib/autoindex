@@ -12,6 +12,12 @@
 
   {$hide_links}
 
+  <!-- Adsense Meta Tag for Verification -->
+  <meta name="google-adsense-account" content="ca-pub-2274017621360737">
+
+  <!-- Adsense Auto Ads Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2274017621360737"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
